@@ -3,7 +3,7 @@
   <groupId>clj-pail-tap</groupId>
   <artifactId>clj-pail-tap</artifactId>
   <packaging>jar</packaging>
-  <version>0.1.0-SNAPSHOT</version>
+  <version>0.1.1</version>
   <name>clj-pail-tap</name>
   <description>Library for making taps easier with Pail.</description>
   <url>http://github.com/EricGebhart/</url>
@@ -14,10 +14,10 @@
     </license>
   </licenses>
   <scm>
-    <connection>scm:git:git://github.com/EricGebhart/pail-graph.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/EricGebhart/pail-graph.git</developerConnection>
-    <tag>189dce79a987e203c52990e68cf97bba71e7428a</tag>
-    <url>https://github.com/EricGebhart/pail-graph</url>
+    <connection>scm:git:git://github.com/EricGebhart/clj-pail-tap.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/EricGebhart/clj-pail-tap.git</developerConnection>
+    <tag>10678d30ae2f5411f46d16099732f59dfe2ef032</tag>
+    <url>https://github.com/EricGebhart/clj-pail-tap</url>
   </scm>
   <build>
     <sourceDirectory>src</sourceDirectory>

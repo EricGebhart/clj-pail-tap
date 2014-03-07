@@ -1,4 +1,4 @@
-(defproject clj-pail-tap "0.1.0-SNAPSHOT"
+(defproject clj-pail-tap "0.1.1"
   :description "Library for making taps easier with Pail."
   :url "http://github.com/EricGebhart/"
   :license {:name "Eclipse Public License"
@@ -22,8 +22,4 @@
                    :plugins [[lein-midje "3.0.1"]]
                    :source-paths ["src/test"]
                    :aot [clj-pail-tap.fakes.structure]
-                   }}
-
-
-  :deploy-repositories [["releases" {:url "https://clojars.org/repo" :username :gpg :password :gpg}]
-                        ["snapshots" {:url "https://clojars.org/repo" :username :gpg :password :gpg}]])
+                   }})
