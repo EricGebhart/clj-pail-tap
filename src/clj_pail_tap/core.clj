@@ -62,27 +62,74 @@
           (not (= (type structure) (type conn-struct))) false
           :else true)))
 
-; these can go away when the clj-pail clojars is updated with the pull request.
+(defn move-append
+  "Move contents of pail and append to another pail.
+   Rename if necessary. "
+  [source-pail dest-pail]
+  (.moveAppend dest-pail source-pail 1))
+
+(defn copy-append
+  "Move contents of pail and append to another pail. Rename
+   if necessary. "
+  [source-pail dest-pail]
+  (.copyAppend dest-pail source-pail 1))
+
+(defn absorb
+  "Absorb one pail into another. Rename if necessary."
+  [dest-pail source-pail]
+  (.absorb dest-pail source-pail 1))
+
+(defn consolidate
+  "consolidate pail"
+  [pail]
+  (.consolidate pail))
+
+(defn snapshot
+  "Create snapshot of pail at path."
+  [pail path]
+  (.snapshot pail path))
+
+(defn delete-snapshot
+  "delete the snapshot of a pail."
+  [pail snapshot]
+  (.deleteSnapshot pail snapshot))
+
+(defn empty?
+  "check pail for emptiness"
+  [pail]
+  (.isEmpty pail))
+
+(defn exists?
+  "check to see if the pail path exists."
+  [path]
+  (.exists path))
+
+(defn delete
+  "delete pail path recursively"
+  [path]
+  (.delete path true))
+
+;; these can go away when the clj-pail clojars is updated with the pull request.
 (defn ^Pail create
-   "Creates a Pail from a PailSpec at `path`."
-   [spec-or-structure path & {:keys [filesystem fail-on-exists]
-                              :or {fail-on-exists true}
-                              :as opts}]
-   (if (instance? PailStructure spec-or-structure)
-     (apply create (spec spec-or-structure) path (mapcat identity opts))
-     (if filesystem
-       (Pail/create filesystem path spec-or-structure fail-on-exists)
-       (Pail/create path spec-or-structure fail-on-exists))))
+  "Creates a Pail from a PailSpec at `path`."
+  [spec-or-structure path & {:keys [filesystem fail-on-exists]
+                             :or {fail-on-exists true}
+                             :as opts}]
+  (if (instance? PailStructure spec-or-structure)
+    (apply create (spec spec-or-structure) path (mapcat identity opts))
+    (if filesystem
+      (Pail/create filesystem path spec-or-structure fail-on-exists)
+      (Pail/create path spec-or-structure fail-on-exists))))
 
 (defn find-or-create [pstruct path & {:as create-key-args}]
   "Get a pail from a path, or create one if not found"
   (try (pail path)
        (catch Exception e
-                (apply create pstruct path (mapcat identity create-key-args)))))
+         (apply create pstruct path (mapcat identity create-key-args)))))
 
 (defn write-objects
   "Write a list of objects to a pail"
   [pail objects]
   (with-open [writer (.openWrite pail)]
     (doseq [o objects]
-        (.writeObject writer o))))
+      (.writeObject writer o))))
