@@ -94,12 +94,12 @@
   [pail snapshot]
   (.deleteSnapshot pail snapshot))
 
-(defn empty?
+(defn pail-is-empty?
   "check pail for emptiness"
   [pail]
   (.isEmpty pail))
 
-(defn exists?
+(defn pail-exists?
   "check to see if the pail path exists."
   [path]
   (.exists path))

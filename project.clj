@@ -1,4 +1,4 @@
-(defproject clj-pail-tap "0.1.1"
+(defproject clj-pail-tap "0.1.2"
   :description "Library for making taps easier with Pail."
   :url "http://github.com/EricGebhart/"
   :license {:name "Eclipse Public License"
